@@ -10,19 +10,14 @@ using System.Windows.Forms;
 
 namespace FacebookGroupJSON
 {
-    public partial class Form1 : Form
+    public partial class AddNewGroup : Form
     {
-        public Form1()
+        public AddNewGroup()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void AddNewGroup_Load(object sender, EventArgs e)
         {
 
         }
