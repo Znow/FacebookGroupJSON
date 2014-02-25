@@ -1,27 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 
 namespace FacebookGroupJSON
 {
-    class FeedEntry
+    public class FeedEntry<T> //where : new()
     {
-        #region Private Fields
+        #region Public Fields
 
-        private string _title;
-        private string _id;
-        private string _alternate;
-        private string[] _categories;
-        private DateTime _published;
-        private DateTime _updated;
-        private string _authorName;
-        private string _verb;
-        private string _target;
-        private string _objects;
-        private string _comments;
-        private string _likes;
-        private string _content;
+        public string _title;
+        public string _id;
+        public string _alternate;
+        public string[] _categories;
+        public DateTime _published;
+        public DateTime _updated;
+        public string _authorName;
+        public string _verb;
+        public string _target;
+        public string _objects;
+        public string _comments;
+        public string _likes;
+        public string _content;
 
         #endregion Fields
 
