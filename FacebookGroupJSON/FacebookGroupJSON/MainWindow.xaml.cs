@@ -25,7 +25,7 @@ namespace FacebookGroupJSON
         {
             InitializeComponent();
 
-            FeedItem fItem = JsonConvert.DeserializeObject<FeedItem>(System.IO.File.ReadAllText(CONSTANTS.FEEDITEMPATH));
+            //FeedItem fItem = JsonConvert.DeserializeObject<FeedItem>(System.IO.File.ReadAllText(CONSTANTS.FEEDITEMPATH));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -31,6 +31,7 @@ namespace FacebookGroupJSON
             if(!string.IsNullOrWhiteSpace(txtName.Text) || !string.IsNullOrWhiteSpace(txtID.Text))
             {
                 FeedItem fItem = new FeedItem(txtName.Text, txtID.Text);
+                fItem.getQueryURL();
                 string json = JsonConvert.SerializeObject(fItem);
 
                 //File.AppendAllText(@"C:\FeedItem.txt", json + "\n");
