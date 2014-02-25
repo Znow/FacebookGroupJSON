@@ -10,7 +10,7 @@
         ">
     <Grid Margin="0,0,-6.667,-8.333" RenderTransformOrigin="0.402,0.311">
         <ComboBox HorizontalAlignment="Left" Margin="132,10,0,0" VerticalAlignment="Top" Width="254"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.133,1.057" Height="22"/>
+        <Button Content="Add New Feed" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.133,1.057" Height="22" IsDefault="True" Click="Button_Click"/>
         <ListView HorizontalAlignment="Left" Height="623" Margin="0,46,0,0" VerticalAlignment="Top" Width="590">
             <ListView.View>
                 <GridView>
