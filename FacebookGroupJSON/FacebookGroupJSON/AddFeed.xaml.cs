@@ -35,7 +35,7 @@ namespace FacebookGroupJSON
 
                 //File.AppendAllText(@"C:\FeedItem.txt", json + "\n");
                 //System.IO.File.WriteAllText(@"C:\FeedItem.txt", json);
-                File.AppendAllText(@"C:\FeedItem.txt", json + Environment.NewLine);
+                File.AppendAllText(@"C:\FeedItem.json", json + Environment.NewLine);
                 this.Close();
             }
             
