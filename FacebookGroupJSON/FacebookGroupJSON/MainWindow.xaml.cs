@@ -29,6 +29,8 @@ namespace FacebookGroupJSON
         {
             var newW = new AddFeed();
             newW.Show();
+
+            FeedParser.ParseJsonFromURL("https://api.advicecapital.dk/news.json");
         }
     }
 }
