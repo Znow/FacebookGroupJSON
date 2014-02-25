@@ -24,5 +24,11 @@ namespace FacebookGroupJSON
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var newW = new AddFeed();
+            newW.Show();
+        }
     }
 }
