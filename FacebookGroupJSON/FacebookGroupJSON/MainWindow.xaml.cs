@@ -30,7 +30,7 @@ namespace FacebookGroupJSON
             var newW = new AddFeed();
             newW.Show();
 
-            FeedParser.ParseJsonFromURL("https://api.advicecapital.dk/news.json");
+            FeedParser.ParseJsonFromURL("https://graph.facebook.com/237173582992285/feed?access_token=CAACEdEose0cBAHmDGAZBcbKYrNKLfK1DG1yN97iKmyx8QmZABa5PnX1shxXFuQWBfXGFGW5fccpRkFTqMOoobne87fmZBZB4noHsufOm9xM70kHj2IuTFRAc0ZBZCwcMVWm5ZBsZBf859OCU6ty20mx48Ew6G3c6CE2uZBVGLwSPrmopjKBCXmQXisWg5OZCCqBZCYZD");
         }
     }
 }
