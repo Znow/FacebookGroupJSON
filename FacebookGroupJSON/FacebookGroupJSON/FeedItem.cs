@@ -8,7 +8,7 @@ namespace FacebookGroupJSON
 {
     class FeedItem
     {
-        private sealed string BaseQueryURL = "https://www.facebook.com/feeds/page.php?format=rss20&id=";
+        private string BaseQueryURL = "https://www.facebook.com/feeds/page.php?format=rss20&id=";
         public string ID { get; set; }
         public string Name { get; set; }
         public string QueryURL { get { return BaseQueryURL + ID; } set; }
