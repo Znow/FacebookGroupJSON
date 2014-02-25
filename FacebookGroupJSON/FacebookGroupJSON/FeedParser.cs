@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;//.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -56,7 +56,7 @@ namespace FacebookGroupJSON
             }
 
 
-                var feedEntry = _download_serialized_json_data<FeedEntry>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
+                var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
             
         }
     }

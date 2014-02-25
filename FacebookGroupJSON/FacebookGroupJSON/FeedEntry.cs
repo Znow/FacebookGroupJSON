@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace FacebookGroupJSON
 {
-    public class FeedEntry<T> //where : new()
+    public class FeedEntry<T> where T : new()
     {
         #region Public Fields
 
@@ -47,9 +47,9 @@ namespace FacebookGroupJSON
         #endregion
 
         #region Methods
-        public List<FeedEntry> GetFeedEntriesByFeed()
+        public List<FeedEntry<T>> GetFeedEntriesByFeed()
         {
-            return new List<FeedEntry>();
+            return new List<FeedEntry<T>>();
         }
         #endregion
 
