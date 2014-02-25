@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace FacebookGroupJSON
 {
@@ -26,7 +28,17 @@ namespace FacebookGroupJSON
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            FeedItem fItem = new FeedItem();
+            if(!string.IsNullOrWhiteSpace(txtName.Text) || !string.IsNullOrWhiteSpace(txtID.Text))
+            {
+                FeedItem fItem = new FeedItem(txtName.Text, txtID.Text);
+                string json = JsonConvert.SerializeObject(fItem);
+
+                //File.AppendAllText(@"C:\FeedItem.txt", json + "\n");
+                //System.IO.File.WriteAllText(@"C:\FeedItem.txt", json);
+                File.AppendAllText(@"C:\FeedItem.txt", json + Environment.NewLine);
+                this.Close();
+            }
+            
         }
     }
 }
