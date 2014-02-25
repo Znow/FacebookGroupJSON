@@ -20,7 +20,7 @@ namespace FacebookGroupJSON
 
         public string getQueryURL()
         {
-            return CONSTANTS.BASEQUERYURL + ID;
+            return CONSTANTS.BASEQUERYURL + ID + CONSTANTS.ACCESS_TOKEN;
         }
     }
 }
