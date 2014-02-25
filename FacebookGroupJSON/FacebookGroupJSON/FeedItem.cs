@@ -11,6 +11,7 @@ namespace FacebookGroupJSON
         public string ID { get; set; }
         public string Name { get; set; }
         private string QueryURL;
+        public override string ToString() { return this.Name; }
 
         public FeedItem(string id, string name)
         {
