@@ -36,11 +36,6 @@ namespace FacebookGroupJSON
                 FeedItem fItem = new FeedItem(txtName.Text, txtID.Text);
                 string json = JsonConvert.SerializeObject(fItem);
 
-                //File.AppendAllText(@"C:\FeedItem.txt", json + "\n");
-                //System.IO.File.WriteAllText(@"C:\FeedItem.txt", json);
-                //File.AppendAllText(CONSTANTS.FEEDITEMPATH, json + Environment.NewLine);
-                //this.Close();
-
                 if(File.Exists(CONSTANTS.FEEDITEMPATH))
                 {
                     fileData = File.ReadAllText(CONSTANTS.FEEDITEMPATH);

@@ -26,9 +26,7 @@ namespace FacebookGroupJSON
         {
             InitializeComponent();
 
-            
-            //FeedItem fItem = JsonConvert.DeserializeObject<FeedItem>(System.IO.File.ReadAllText(CONSTANTS.FEEDITEMPATH));
-            //var FeedItemList = JsonConvert.DeserializeObject<IEnumerable<FeedItem>>(System.IO.File.ReadAllText(CONSTANTS.FEEDITEMPATH));
+            #region Initialize comboBox
             if (File.Exists(CONSTANTS.FEEDITEMPATH))
             {
                 List<FeedItem> fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH));
@@ -39,6 +37,7 @@ namespace FacebookGroupJSON
                     comboBox.Items.Add(new FeedItem(item.Name, item.ID));
                 }
             }
+            #endregion
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
