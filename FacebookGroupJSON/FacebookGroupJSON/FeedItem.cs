@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FacebookGroupJSON
 {
-    class FeedItem
+    public class FeedItem
     {
         public string ID { get; set; }
         public string Name { get; set; }

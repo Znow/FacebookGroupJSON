@@ -76,6 +76,7 @@
     <Compile Include="Feed.cs" />
     <Compile Include="FeedEntry.cs" />
     <Compile Include="FeedItem.cs" />
+    <Compile Include="FeedItemList.cs" />
     <Compile Include="FeedParser.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
