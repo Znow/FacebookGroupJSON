@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace FacebookGroupJSON
 {
@@ -23,6 +24,8 @@ namespace FacebookGroupJSON
         public MainWindow()
         {
             InitializeComponent();
+
+            //FeedItem fItem = JsonConvert.DeserializeObject<FeedItem>(System.IO.File.ReadAllText(CONSTANTS.FEEDITEMPATH));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

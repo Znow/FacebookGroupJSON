@@ -31,11 +31,12 @@ namespace FacebookGroupJSON
             if(!string.IsNullOrWhiteSpace(txtName.Text) || !string.IsNullOrWhiteSpace(txtID.Text))
             {
                 FeedItem fItem = new FeedItem(txtName.Text, txtID.Text);
+                fItem.getQueryURL();
                 string json = JsonConvert.SerializeObject(fItem);
 
                 //File.AppendAllText(@"C:\FeedItem.txt", json + "\n");
                 //System.IO.File.WriteAllText(@"C:\FeedItem.txt", json);
-                File.AppendAllText(@"C:\FeedItem.txt", json + Environment.NewLine);
+                File.AppendAllText(@"C:\FeedItem.json", json + Environment.NewLine);
                 this.Close();
             }
             
