@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="AddFeed" Height="100" Width="450">
     <Grid>
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="358,28,0,0" VerticalAlignment="Top" Width="75" Height="22"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="10,28,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="161"/>
-        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="23" Margin="176,28,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="161" RenderTransformOrigin="1.636,0.594"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="358,28,0,0" VerticalAlignment="Top" Width="75" Height="22" Click="btnAdd_Click"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="10,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="23" Margin="176,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" RenderTransformOrigin="1.636,0.594"/>
         <Label Content="Name" HorizontalAlignment="Left" Margin="71,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.423"/>
         <Label Content="ID" HorizontalAlignment="Left" Margin="233,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.026,-0.423"/>
 

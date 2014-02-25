@@ -23,5 +23,10 @@ namespace FacebookGroupJSON
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            FeedItem fItem = new FeedItem();
+        }
     }
 }
