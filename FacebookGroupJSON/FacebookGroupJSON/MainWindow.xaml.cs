@@ -90,14 +90,14 @@ namespace FacebookGroupJSON
             var titleLabel = (Label)feedItemWindow.FindName("itemTitle");
             if (titleLabel != null)
             {
-                titleLabel.Content = item.title;    
+                titleLabel.Content = Tools.StripHTML(item.title);    
             }
 
             // Set the content in the window
             var contentTextBlock = (TextBlock)feedItemWindow.FindName("itemContent");
             if (contentTextBlock != null)
             {
-                contentTextBlock.Text = item.content;
+                contentTextBlock.Text = Tools.StripHTML(item.content);
             }
             
 
