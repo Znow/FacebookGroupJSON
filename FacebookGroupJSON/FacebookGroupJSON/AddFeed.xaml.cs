@@ -24,6 +24,8 @@ namespace FacebookGroupJSON
 
         string fileData;
 
+        string searchNoWhiteSpaces;
+
         public AddFeed()
         {
             InitializeComponent();
@@ -31,9 +33,10 @@ namespace FacebookGroupJSON
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if(!string.IsNullOrWhiteSpace(txtName.Text) || !string.IsNullOrWhiteSpace(txtID.Text))
+            if(!string.IsNullOrWhiteSpace(txtSearchString.Text))
             {
-                FeedItem fItem = new FeedItem(txtName.Text, txtID.Text);
+                searchNoWhiteSpaces = txtSearchString.Text.Replace(" ", "%");
+                FeedItem fItem = new FeedItem(txtSearchString.Text, searchNoWhiteSpaces);
                 string json = JsonConvert.SerializeObject(fItem);
 
                 if(File.Exists(CONSTANTS.FEEDITEMPATH))

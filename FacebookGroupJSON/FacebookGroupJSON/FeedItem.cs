@@ -10,24 +10,16 @@ namespace FacebookGroupJSON
     {
 
         #region Fields
-        public string ID { get; set; }
-        public string Name { get; set; }
-        private string QueryURL;
-        public override string ToString() { return this.Name; }
+        public string Search { get; set; }
+        public string SearchNoWhiteSpaces { get; set; }
+        public override string ToString() { return this.Search; }
         #endregion'
 
         #region Constructor
-        public FeedItem(string id, string name)
+        public FeedItem(string search, string searchNoWhiteSpaces)
         {
-            ID = id;
-            Name = name;
-        }
-        #endregion
-
-        #region Methods
-        public string getQueryURL()
-        {
-            return CONSTANTS.BASEQUERYURL + ID + CONSTANTS.ACCESS_TOKEN;
+            Search = search;
+            SearchNoWhiteSpaces = searchNoWhiteSpaces;
         }
         #endregion
     }

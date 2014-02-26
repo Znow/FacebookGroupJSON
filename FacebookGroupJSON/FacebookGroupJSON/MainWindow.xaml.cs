@@ -39,7 +39,7 @@ namespace FacebookGroupJSON
                 foreach (var item in fItem)
                 {
                     //comboBox.Items.Add(fItem);
-                    ComboBox.Items.Add(new FeedItem(item.Name, item.ID));
+                    ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
                 }
             }
             #endregion
