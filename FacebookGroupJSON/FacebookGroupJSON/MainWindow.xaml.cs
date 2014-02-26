@@ -43,7 +43,11 @@ namespace FacebookGroupJSON
                 }
             }
             #endregion
+
+            LoadFeed();
         }
+
+        #region Event Handlers
 
         /// <summary>
         /// Handles the click event of the button
@@ -51,6 +55,62 @@ namespace FacebookGroupJSON
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
+
+        /// <summary>
+        /// Handles the mouse double click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // Get the item from the datacontext as a Result item, so we can access its values
+            Result item = ((FrameworkElement) e.OriginalSource).DataContext as Result;
+
+            if (item == null)
+            {
+                return;
+            }
+
+            var publishedDate = item.publishedDate;
+
+            // Find the feed item window
+            var feedItemWindow = new FeedItemWindow();
+
+            // if its null, return
+            if (feedItemWindow == null)
+            {
+                return;
+            }
+
+            // Set the title in the window
+            var titleLabel = (Label)feedItemWindow.FindName("itemTitle");
+            if (titleLabel != null)
+            {
+                titleLabel.Content = item.title;    
+            }
+
+            // Set the content in the window
+            var contentTextBlock = (TextBlock)feedItemWindow.FindName("itemContent");
+            if (contentTextBlock != null)
+            {
+                contentTextBlock.Text = item.content;
+            }
+            
+
+            // Show the window
+            feedItemWindow.Show();
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Loads the feed
+        /// </summary>
+        private void LoadFeed()
         {
             var newW = new AddFeed();
             newW.Show();
@@ -66,7 +126,9 @@ namespace FacebookGroupJSON
             }
 
             ListView.ItemsSource = ro.responseData.results;
-
         }
+
+        
+
     }
 }
