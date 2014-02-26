@@ -36,6 +36,12 @@ namespace FacebookGroupJSON
             //        else
             //            Console.WriteLine("Token: {0}", reader.TokenType);
             //    }
+            Rootobject ro = JsonConvert.DeserializeObject<Rootobject>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
+
+            foreach (var item in ro.Property1)
+            {
+                Console.WriteLine("id: {0}, name: {1}", item.id, item.user);
+            }
                 
             }
         
@@ -56,7 +62,8 @@ namespace FacebookGroupJSON
             }
 
 
-                var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
+                //var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
+                
             
         }
     }
