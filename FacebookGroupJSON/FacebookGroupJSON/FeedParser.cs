@@ -10,7 +10,7 @@ namespace FacebookGroupJSON
 {
     public class FeedParser
     {
-        public static void ParseJsonFromURL(string url)
+        public static Rootobject ParseJsonFromURL(string url)
         {
             string json2 = @"{
                 'CPU': 'Intel',
@@ -38,10 +38,12 @@ namespace FacebookGroupJSON
             //    }
             Rootobject ro = JsonConvert.DeserializeObject<Rootobject>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
 
-            foreach (var item in ro.Property1)
-            {
-                Console.WriteLine("id: {0}, name: {1}", item.id, item.user);
-            }
+            return ro;
+
+            //foreach (var item in ro.Property1)
+            //{
+            //    Console.WriteLine("id: {0}, name: {1}", item.id, item.user);
+            //}
                 
             }
         
@@ -63,7 +65,6 @@ namespace FacebookGroupJSON
 
 
                 //var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
-                
             
         }
     }
