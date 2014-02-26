@@ -23,28 +23,25 @@ namespace FacebookGroupJSON
                 ]
             }";
 
-            //using (var webClient = new System.Net.WebClient())
-            //{
-            //    var json = webClient.DownloadString(url);
+            using (var webClient = new System.Net.WebClient())
+            {
+                // get the json from the URL
+                var json = webClient.DownloadString(url);
+                
+                Rootobject ro = new Rootobject();
 
-            //    var reader = new JsonTextReader(new StringReader(json));
+                // Try Deserialize the JSON from the value from the URL and return a Rootobject
+                try
+                {
+                    ro = JsonConvert.DeserializeObject<Rootobject>(json);
+                }
+                catch (Exception ex)
+                {
+                    string e = ex.Message;
+                }
 
-            //    while (reader.Read())
-            //    {
-            //        if (reader.Value != null)
-            //            Console.WriteLine("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
-            //        else
-            //            Console.WriteLine("Token: {0}", reader.TokenType);
-            //    }
-            Rootobject ro = JsonConvert.DeserializeObject<Rootobject>(url);
-
-            return ro;
-
-            //foreach (var item in ro.Property1)
-            //{
-            //    Console.WriteLine("id: {0}, name: {1}", item.id, item.user);
-            //}
-
+                return ro;
+            }
         }
 
         // http://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i
