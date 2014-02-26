@@ -6,74 +6,73 @@ using System.Text;
 namespace FacebookGroupJSON
 {
 
-public class Rootobject
-{
-    public FeedEntry[] Property { get; set; }
-}
+    public class Rootobject
+    {
+        public Responsedata responseData { get; set; }
+        public object responseDetails { get; set; }
+        public int responseStatus { get; set; }
+    }
 
-public class FeedEntry
-{
-    public object coordinates { get; set; }
-    public bool favorited { get; set; }
-    public bool truncated { get; set; }
-    public string created_at { get; set; }
-    public string id_str { get; set; }
-    public object in_reply_to_user_id_str { get; set; }
-    public object contributors { get; set; }
-    public string text { get; set; }
-    public int retweet_count { get; set; }
-    public object in_reply_to_status_id_str { get; set; }
-    public long id { get; set; }
-    public object geo { get; set; }
-    public bool retweeted { get; set; }
-    public bool possibly_sensitive { get; set; }
-    public object in_reply_to_user_id { get; set; }
-    public object place { get; set; }
-    public User user { get; set; }
-    public object in_reply_to_screen_name { get; set; }
-    public string source { get; set; }
-    public object in_reply_to_status_id { get; set; }
-}
+    public class Responsedata
+    {
+        public Result[] results { get; set; }
+        public Cursor cursor { get; set; }
+    }
 
-public class User
-{
-    public string profile_sidebar_fill_color { get; set; }
-    public string profile_sidebar_border_color { get; set; }
-    public bool profile_background_tile { get; set; }
-    public string name { get; set; }
-    public string profile_image_url { get; set; }
-    public string created_at { get; set; }
-    public string location { get; set; }
-    public bool follow_request_sent { get; set; }
-    public string profile_link_color { get; set; }
-    public bool is_translator { get; set; }
-    public string id_str { get; set; }
-    public bool default_profile { get; set; }
-    public bool contributors_enabled { get; set; }
-    public int favourites_count { get; set; }
-    public string url { get; set; }
-    public string profile_image_url_https { get; set; }
-    public int utc_offset { get; set; }
-    public int id { get; set; }
-    public bool profile_use_background_image { get; set; }
-    public int listed_count { get; set; }
-    public string profile_text_color { get; set; }
-    public string lang { get; set; }
-    public int followers_count { get; set; }
-    public bool _protected { get; set; }
-    public object notifications { get; set; }
-    public string profile_background_image_url_https { get; set; }
-    public string profile_background_color { get; set; }
-    public bool verified { get; set; }
-    public bool geo_enabled { get; set; }
-    public string time_zone { get; set; }
-    public string description { get; set; }
-    public bool default_profile_image { get; set; }
-    public string profile_background_image_url { get; set; }
-    public int statuses_count { get; set; }
-    public int friends_count { get; set; }
-    public object following { get; set; }
-    public bool show_all_inline_media { get; set; }
-    public string screen_name { get; set; }
-}
+    public class Cursor
+    {
+        public Page[] pages { get; set; }
+        public string estimatedResultCount { get; set; }
+        public int currentPageIndex { get; set; }
+        public string moreResultsUrl { get; set; }
+    }
+
+    public class Page
+    {
+        public string start { get; set; }
+        public int label { get; set; }
+    }
+
+    public class Result
+    {
+        public string GsearchResultClass { get; set; }
+        public string clusterUrl { get; set; }
+        public string content { get; set; }
+        public string unescapedUrl { get; set; }
+        public string url { get; set; }
+        public string title { get; set; }
+        public string titleNoFormatting { get; set; }
+        public string location { get; set; }
+        public string publisher { get; set; }
+        public string publishedDate { get; set; }
+        public string signedRedirectUrl { get; set; }
+        public string language { get; set; }
+        public Image image { get; set; }
+        public Relatedstory[] relatedStories { get; set; }
+    }
+
+    public class Image
+    {
+        public string url { get; set; }
+        public string tbUrl { get; set; }
+        public string originalContextUrl { get; set; }
+        public string publisher { get; set; }
+        public int tbWidth { get; set; }
+        public int tbHeight { get; set; }
+    }
+
+    public class Relatedstory
+    {
+        public string unescapedUrl { get; set; }
+        public string url { get; set; }
+        public string title { get; set; }
+        public string titleNoFormatting { get; set; }
+        public string location { get; set; }
+        public string publisher { get; set; }
+        public string publishedDate { get; set; }
+        public string signedRedirectUrl { get; set; }
+        public string language { get; set; }
+    }
+
+
 }
