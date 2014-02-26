@@ -73,7 +73,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CONSTANTS.cs" />
-    <Compile Include="Feed.cs" />
     <Compile Include="FeedEntry.cs" />
     <Compile Include="FeedItem.cs" />
     <Compile Include="FeedParser.cs" />

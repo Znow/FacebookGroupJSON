@@ -65,11 +65,15 @@ namespace FacebookGroupJSON
                 return;
             }
 
-            foreach (var item in ro.responseData.results)
-            {
-                ListView.Items.Add(item);
-                // TODO Fyld de relevante data ind i listview(gridview)   
-            }
+
+
+            ListView.ItemsSource = ro.responseData.results;
+
+            //foreach (var item in ro.responseData.results)
+            //{
+            //    ListView.Items.Add(item);
+            //    // TODO Fyld de relevante data ind i listview(gridview)   
+            //}
         }
     }
 }
