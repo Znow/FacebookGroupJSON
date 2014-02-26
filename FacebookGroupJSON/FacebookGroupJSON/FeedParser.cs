@@ -56,7 +56,7 @@ namespace FacebookGroupJSON
             }
 
 
-                var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
+                //var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
             
         }
     }
