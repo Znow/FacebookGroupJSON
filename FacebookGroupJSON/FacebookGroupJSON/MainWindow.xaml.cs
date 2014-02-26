@@ -29,7 +29,7 @@ namespace FacebookGroupJSON
             #region Initialize comboBox
             if (File.Exists(CONSTANTS.FEEDITEMPATH))
             {
-                List<FeedItem> fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH));
+                var fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH));
 
                 foreach (var item in fItem)
                 {
