@@ -44,25 +44,5 @@ namespace FacebookGroupJSON
             }
         }
 
-        // http://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i
-        private static T _download_serialized_json_data<T>(string url) where T : new()
-        {
-            using (var webClient = new System.Net.WebClient())
-            {
-                var json_data = string.Empty;
-                // attempt to download JSON data as a string
-                try
-                {
-                    json_data = webClient.DownloadString(url);
-                }
-                catch (Exception) { }
-                // if string with JSON data is not empty, deserialize it to class and return its instance 
-                return !string.IsNullOrEmpty(json_data) ? JsonConvert.DeserializeObject<T>(json_data) : new T();
-            }
-
-
-            //var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
-
-        }
     }
 }
