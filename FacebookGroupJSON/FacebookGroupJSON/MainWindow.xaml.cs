@@ -14,6 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using System.IO;
+using System.Collections.Specialized;
+using System.Windows.Threading;
+using HtmlAgilityPack;
 
 namespace FacebookGroupJSON
 {
@@ -131,6 +134,12 @@ namespace FacebookGroupJSON
             LoadFeed(ComboBox.SelectedValue.ToString());
         }
 
+        public string StripTags(string input)
+        {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(input ?? "");
+            return doc.DocumentNode.InnerText;
+        }
         
 
     }
