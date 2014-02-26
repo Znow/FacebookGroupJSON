@@ -8,7 +8,7 @@ namespace FacebookGroupJSON
 
 public class Rootobject
 {
-    public FeedEntry[] Property1 { get; set; }
+    public FeedEntry[] Property { get; set; }
 }
 
 public class FeedEntry

@@ -36,7 +36,7 @@ namespace FacebookGroupJSON
             //        else
             //            Console.WriteLine("Token: {0}", reader.TokenType);
             //    }
-            Rootobject ro = JsonConvert.DeserializeObject<Rootobject>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
+            Rootobject ro = JsonConvert.DeserializeObject<Rootobject>(url);
 
             return ro;
 
@@ -44,29 +44,28 @@ namespace FacebookGroupJSON
             //{
             //    Console.WriteLine("id: {0}, name: {1}", item.id, item.user);
             //}
-                
-            }
-        
-       // http://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i
-            private static T _download_serialized_json_data<T>(string url) where T : new() 
+
+        }
+
+        // http://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i
+        private static T _download_serialized_json_data<T>(string url) where T : new()
+        {
+            using (var webClient = new System.Net.WebClient())
             {
-                using (var webClient = new System.Net.WebClient()) 
+                var json_data = string.Empty;
+                // attempt to download JSON data as a string
+                try
                 {
-                    var json_data = string.Empty;
-                    // attempt to download JSON data as a string
-                    try 
-                    {
-                        json_data = webClient.DownloadString(url);
-                    }
-                    catch (Exception) {}
-                    // if string with JSON data is not empty, deserialize it to class and return its instance 
-                    return !string.IsNullOrEmpty(json_data) ? JsonConvert.DeserializeObject<T>(json_data) : new T();
+                    json_data = webClient.DownloadString(url);
+                }
+                catch (Exception) { }
+                // if string with JSON data is not empty, deserialize it to class and return its instance 
+                return !string.IsNullOrEmpty(json_data) ? JsonConvert.DeserializeObject<T>(json_data) : new T();
             }
 
 
-                //var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
-            
+            //var feedEntry = _download_serialized_json_data<FeedEntry<T>>(CONSTANTS.BASEQUERYURL + CONSTANTS.ACCESS_TOKEN);
+
         }
     }
 }
-    

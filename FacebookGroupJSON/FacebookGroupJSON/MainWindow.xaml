@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Facebook Group JSON" Height="700" Width="600">
     <Grid Margin="0,0,-6.667,-8.333" RenderTransformOrigin="0.402,0.311">
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="132,10,0,0" VerticalAlignment="Top" Width="254"/>
+        <ComboBox x:Name="ComboBox" HorizontalAlignment="Left" Margin="132,10,0,0" VerticalAlignment="Top" Width="254"/>
         <Button Content="Add New Feed" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.133,1.057" Height="22" IsDefault="True" Click="Button_Click"/>
-        <ListView x:Name="listView1" HorizontalAlignment="Left" Height="623" Margin="0,46,0,0" VerticalAlignment="Top" Width="590">
+        <ListView x:Name="ListView" HorizontalAlignment="Left" Height="623" Margin="0,46,0,0" VerticalAlignment="Top" Width="590">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
