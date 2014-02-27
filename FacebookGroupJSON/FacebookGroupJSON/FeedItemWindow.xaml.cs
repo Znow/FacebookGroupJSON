@@ -52,5 +52,10 @@ namespace FacebookGroupJSON
             // Show the webbrowser window
             webBrowserWindow.Show();
         }
+
+        private void relatedStories_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
