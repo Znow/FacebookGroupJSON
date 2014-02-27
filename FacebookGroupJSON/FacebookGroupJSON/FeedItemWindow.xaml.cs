@@ -37,25 +37,41 @@ namespace FacebookGroupJSON
             // Sets the sender as a button, so we can get command params
             var button = (Button) sender;
 
-            // initialize the window: webbrowser
-            var webBrowserWindow = new WebBrowserWindow();
-
-            // finds the webbrowser in the webbrowserwindow
-            var webBrowser = (WebBrowser) webBrowserWindow.FindName("webBrowser");
-
-            if (webBrowser != null)
-            {
-                // Navigates to the URL from the buttons command param
-                webBrowser.Navigate(button.CommandParameter.ToString());    
-            }
-
-            // Show the webbrowser window
-            webBrowserWindow.Show();
+            string url = button.CommandParameter.ToString();
+            openWebBrowser(url);
         }
 
         private void relatedStories_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var test = (ListView)sender;
 
+            if (test.SelectedItems != null && test.SelectedItems.Count > 0)
+            {
+                var item = (Relatedstory)test.SelectedItems[0];
+                openWebBrowser(item.unescapedUrl);
+            }
+            
+
+                       
+            
+        }
+
+        private void openWebBrowser(string URL)
+        {
+            // initialize the window: webbrowser
+            var webBrowserWindow = new WebBrowserWindow();
+
+            // finds the webbrowser in the webbrowserwindow
+            var webBrowser = (WebBrowser)webBrowserWindow.FindName("webBrowser");
+
+            if (webBrowser != null)
+            {
+                // Navigates to the URL from the buttons command param
+                webBrowser.Navigate(URL);
+            }
+
+            // Show the webbrowser window
+            webBrowserWindow.Show();
         }
     }
 }
