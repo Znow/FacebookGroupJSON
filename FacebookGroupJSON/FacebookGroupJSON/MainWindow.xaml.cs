@@ -25,8 +25,6 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class MainWindow : Window
     {
-
-
         bool loadNewSearchString;
 
         /// <summary>
