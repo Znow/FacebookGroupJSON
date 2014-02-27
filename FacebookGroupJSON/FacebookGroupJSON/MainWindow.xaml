@@ -12,7 +12,7 @@
         <ListView x:Name="ListView" HorizontalAlignment="Left" Height="623" Margin="0,46,0,0" VerticalAlignment="Top" Width="590" MouseDoubleClick="ListView_MouseDoubleClick" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView >
-                    <GridViewColumn Header="Titel" Width="400" DisplayMemberBinding="{Binding title}" />
+                    <GridViewColumn Header="Titel" Width="400" DisplayMemberBinding="{Binding titleNoFormatting}" />
                     <GridViewColumn Header="Dato" Width="100" DisplayMemberBinding="{Binding publishedDate}" />
                 </GridView>
             </ListView.View>
