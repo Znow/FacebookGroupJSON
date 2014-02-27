@@ -10,6 +10,11 @@ namespace FacebookGroupJSON
 {
     public class FeedParser
     {
+        /// <summary>
+        /// Parse JSON content from a given URL
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static Rootobject ParseJsonFromURL(string url)
         {
             string json2 = @"{
