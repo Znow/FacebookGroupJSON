@@ -169,12 +169,16 @@ namespace FacebookGroupJSON
         /// </summary>
         private void LoadComboBox()
         {
+            //Check if our filepath doesn't exist.
             if (!Directory.Exists(CONSTANTS.FEEDITEMPATH))
             {
+                //Create our directory, if the directory isn't present.
                 Directory.CreateDirectory(CONSTANTS.FEEDITEMPATH);
             }
+                //Checks if our JSON file is present.
                 if (File.Exists(CONSTANTS.FEEDITEMPATH+"FeedItem.json"))
                 {
+                    //Deserializes our JSON, into fItem which is a list of FeedItem
                     var fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json"));
 
                     if (fItem == null)
@@ -182,11 +186,14 @@ namespace FacebookGroupJSON
                         return;
                     }
 
+                    //This bool is set to true, in our "Add new Feed" button.
+                    //This is set, because we don't want to load all the entries from our JSON file, just the last one.
                     if (loadNewSearchString)
                     {
                         var item = fItem[fItem.Count - 1];
                         ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
                     }
+                    //If the bool is false, then it will add all the entries from our JSON file, this happends first time the program starts.
                     else
                     {
                         foreach (var item in fItem)
