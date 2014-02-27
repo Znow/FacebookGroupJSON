@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="News JSON" Language="1033" Version="1.0.0.0" Manufacturer="JAH" UpgradeCode="a7ea47da-f871-4a56-829b-64a5ba7aa3c4">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate />
+
+    <Feature Id="ProductFeature" Title="News JSON" Level="1">
+      <ComponentRef Id="ProductComponent" />
+    </Feature>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      
+      <Directory Id="ProgramFilesFolder">
+        
+        <Directory Id="INSTALLFOLDER" Name="News JSON">
+          
+          <Component Id="ProductComponent" Guid="E5FAE79A-C1D3-45D0-9CD7-CA7BC1B83321">
+
+            <File Id='FacebookGroupJSON.exe'
+                    Name='FacebookGroupJSON.exe'
+                    DiskId='1'
+                    Source='$(var.FacebookGroupJSON.TargetPath)'
+                    Vital='yes'
+                    KeyPath='yes' />
+
+            <!--<File Id='FacebookGroupJSON.exe.config'
+                  Name='FacebookGroupJSON.exe.config'
+                  DiskId='1'
+                  Source='$(var.FacebookGroupJSON.TargetPath)'
+                  Vital='yes' />-->
+
+            <!-- REQUIRED DLL FILES -->
+            <File Id='HtmlAgilityPack.dll'
+                  Name='HtmlAgilityPack.dll'
+                  DiskId='1'
+                  Source='$(sys.SOURCEFILEDIR)files\'
+                  Vital='yes' />
+            <File Id='Newtonsoft.Json.dll'
+                  Name='Newtonsoft.Json.dll'
+                  DiskId='1'
+                  Source='$(sys.SOURCEFILEDIR)files\'
+                  Vital='yes' />
+            <!-- END -->
+            
+          </Component>
+
+        </Directory>
+        
+      </Directory>
+      
+    </Directory>
+    
+
+  </Product>
+</Wix>
