@@ -71,23 +71,15 @@ namespace FacebookGroupJSON
         private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             // Get the item from the datacontext as a Result item, so we can access its values
-            Result item = ((FrameworkElement) e.OriginalSource).DataContext as Result;
+            var item = ((FrameworkElement) e.OriginalSource).DataContext as Result;
 
             if (item == null)
             {
                 return;
             }
 
-            var publishedDate = item.publishedDate;
-
             // Find the feed item window
             var feedItemWindow = new FeedItemWindow();
-
-            // if its null, return
-            if (feedItemWindow == null)
-            {
-                return;
-            }
 
             // Set the published date in the window
             var publishedDateLabel = (Label) feedItemWindow.FindName("itemPublishedDate");

@@ -19,14 +19,38 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class FeedItemWindow : Window
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public FeedItemWindow()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the click event of urlButton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void urlButton_Click(object sender, RoutedEventArgs e)
         {
-            WebBrowser browser = new WebBrowser();
+            // Sets the sender as a button, so we can get command params
+            var button = (Button) sender;
+
+            // initialize the window: webbrowser
+            var webBrowserWindow = new WebBrowserWindow();
+
+            // finds the webbrowser in the webbrowserwindow
+            var webBrowser = (WebBrowser) webBrowserWindow.FindName("webBrowser");
+
+            if (webBrowser != null)
+            {
+                // Navigates to the URL from the buttons command param
+                webBrowser.Navigate(button.CommandParameter.ToString());    
+            }
+
+            // Show the webbrowser window
+            webBrowserWindow.Show();
         }
     }
 }
