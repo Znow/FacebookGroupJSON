@@ -10,7 +10,11 @@ namespace FacebookGroupJSON
 {
     public class Tools
     {
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string StripTags(string input)
         {
             var doc = new HtmlDocument();
