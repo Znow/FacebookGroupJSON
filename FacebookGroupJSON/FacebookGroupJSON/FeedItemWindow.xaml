@@ -9,10 +9,10 @@
             <TextBlock TextWrapping="WrapWithOverflow" x:Name="itemContent" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,0.423" Width="572" Height="258"/>
         </Border>
         <Label Content="publisher" x:Name="itemPublisher" HorizontalAlignment="Left" Margin="302,10,0,0" VerticalAlignment="Top" Width="280"/>
-        <ListView x:Name="relatedStories" HorizontalAlignment="Left" Height="162" Margin="10,397,0,0" VerticalAlignment="Top" Width="572">
+        <ListView x:Name="relatedStories" HorizontalAlignment="Left" Height="162" Margin="10,397,0,0" VerticalAlignment="Top" Width="572" MouseDoubleClick="relatedStories_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Title" Width="400" DisplayMemberBinding="{Binding title}" />
+                    <GridViewColumn Header="Title" Width="400" DisplayMemberBinding="{Binding titleNoFormatting}" />
                     <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding publishedDate}" />
                 </GridView>
             </ListView.View>

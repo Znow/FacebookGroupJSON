@@ -28,5 +28,10 @@ namespace FacebookGroupJSON
         {
             WebBrowser browser = new WebBrowser();
         }
+
+        private void relatedStories_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
