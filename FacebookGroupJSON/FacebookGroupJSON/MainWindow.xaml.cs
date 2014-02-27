@@ -25,6 +25,9 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -121,11 +124,19 @@ namespace FacebookGroupJSON
             ListView.ItemsSource = ro.responseData.results;
         }
 
+        /// <summary>
+        /// Handles the Selection Changed event of ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             LoadFeed(ComboBox.SelectedValue.ToString());
         }
         
+        /// <summary>
+        /// Loads the items in the ComboBox
+        /// </summary>
         private void LoadComboBox()
         {
             if (File.Exists(CONSTANTS.FEEDITEMPATH))
