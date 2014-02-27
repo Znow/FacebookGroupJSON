@@ -39,21 +39,21 @@ namespace FacebookGroupJSON
                 FeedItem fItem = new FeedItem(txtSearchString.Text, searchNoWhiteSpaces);
                 string json = JsonConvert.SerializeObject(fItem);
 
-                if(File.Exists(CONSTANTS.FEEDITEMPATH))
+                if (File.Exists(CONSTANTS.FEEDITEMPATH + "FeedItem.json"))
                 {
-                    fileData = File.ReadAllText(CONSTANTS.FEEDITEMPATH);
+                    fileData = File.ReadAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json");
                     if (fileData.EndsWith("]"))
                     {
                         fileData = fileData.Remove(fileData.Length - 1);
                         fileData = fileData + ",";
-                        File.WriteAllText(CONSTANTS.FEEDITEMPATH, fileData);
+                        File.WriteAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json", fileData);
                     }
-                    File.AppendAllText(CONSTANTS.FEEDITEMPATH, json + ",");
+                    File.AppendAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json", json + ",");
                 }
                 else
                 {
-                    File.AppendAllText(CONSTANTS.FEEDITEMPATH, "[");
-                    File.AppendAllText(CONSTANTS.FEEDITEMPATH, json + ",");
+                    File.AppendAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json", "[");
+                    File.AppendAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json", json + ",");
                 }
                 DialogResult = true;
                 this.Close();
@@ -64,13 +64,13 @@ namespace FacebookGroupJSON
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
-            fileData = File.ReadAllText(CONSTANTS.FEEDITEMPATH);
+            fileData = File.ReadAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json");
 
             if(fileData.EndsWith(","))
             {
                 fileData = fileData.Remove(fileData.Length - 1);
                 fileData = fileData + "]";
-                File.WriteAllText(CONSTANTS.FEEDITEMPATH, fileData);
+                File.WriteAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json", fileData);
             }
         }
     }

@@ -139,21 +139,26 @@ namespace FacebookGroupJSON
         /// </summary>
         private void LoadComboBox()
         {
-            if (File.Exists(CONSTANTS.FEEDITEMPATH))
+            if (!Directory.Exists(CONSTANTS.FEEDITEMPATH))
             {
-                var fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH));
-
-                if (fItem == null)
-                {
-                    return;
-                }
-
-                foreach (var item in fItem)
-                {
-                    //comboBox.Items.Add(fItem);
-                    ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
-                }
+                Directory.CreateDirectory(CONSTANTS.FEEDITEMPATH);
             }
+                if (File.Exists(CONSTANTS.FEEDITEMPATH+"FeedItem.json"))
+                {
+                    var fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json"));
+
+                    if (fItem == null)
+                    {
+                        return;
+                    }
+
+                    foreach (var item in fItem)
+                    {
+                        //comboBox.Items.Add(fItem);
+                        ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
+                    }
+                }
+            
         }
 
     }
