@@ -3,7 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Vis nyhed" Height="600" Width="600">
     <Grid>
-        <Label Content="title" x:Name="itemTitle" Margin="10,10,10,0" VerticalAlignment="Top"/>
-        <TextBlock TextWrapping="WrapWithOverflow" x:Name="itemContent" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,0.423" Width="572" Height="519"/>
+        <Label Content="publishedDate" x:Name="itemPublishedDate" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="287"/>
+        <Label Content="title" x:Name="itemTitle" Margin="10,41,10,0" VerticalAlignment="Top"/>
+        <Border BorderThickness="2" BorderBrush="Black">
+            <TextBlock TextWrapping="WrapWithOverflow" x:Name="itemContent" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.447,0.423" Width="572" Height="258"/>
+        </Border>
+        <Label Content="publisher" x:Name="itemPublisher" HorizontalAlignment="Left" Margin="302,10,0,0" VerticalAlignment="Top" Width="280"/>
+        <ListView x:Name="relatedStories" HorizontalAlignment="Left" Height="162" Margin="10,397,0,0" VerticalAlignment="Top" Width="572">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Title" Width="400" DisplayMemberBinding="{Binding title}" />
+                    <GridViewColumn Header="Date" Width="100" DisplayMemberBinding="{Binding publishedDate}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Related Stories" HorizontalAlignment="Left" Margin="10,366,0,0" VerticalAlignment="Top" Width="572"/>
+
+        <Button Content="See full story in browser" x:Name="urlButton" Click="urlButton_Click" HorizontalAlignment="Left" Margin="10,346,0,0" VerticalAlignment="Top" Width="138"/>
+
     </Grid>
 </Window>

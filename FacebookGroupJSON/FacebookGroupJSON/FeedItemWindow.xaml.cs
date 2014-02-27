@@ -23,5 +23,10 @@ namespace FacebookGroupJSON
         {
             InitializeComponent();
         }
+
+        private void urlButton_Click(object sender, RoutedEventArgs e)
+        {
+            WebBrowser browser = new WebBrowser();
+        }
     }
 }
