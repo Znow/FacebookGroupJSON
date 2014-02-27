@@ -11,7 +11,7 @@ namespace FacebookGroupJSON
     public class Tools
     {
         /// <summary>
-        /// 
+        /// Strips HTML tags from the string
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
