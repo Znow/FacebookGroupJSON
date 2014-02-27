@@ -25,11 +25,8 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class MainWindow : Window
     {
-<<<<<<< HEAD
         bool loadNewSearchString;
 
-=======
->>>>>>> 815763bce9756858299f4b6cd94565875f461ee4
         /// <summary>
         /// Constructor
         /// </summary>
@@ -166,11 +163,7 @@ namespace FacebookGroupJSON
 
             ListView.ItemsSource = ro.responseData.results;
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 815763bce9756858299f4b6cd94565875f461ee4
         /// <summary>
         /// Loads the items in the ComboBox
         /// </summary>
