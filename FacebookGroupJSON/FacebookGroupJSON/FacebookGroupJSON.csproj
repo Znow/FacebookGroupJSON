@@ -35,6 +35,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\..\..\..\..\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\..\..\Downloads\Json60r1\Bin\Net45\Newtonsoft.Json.dll</HintPath>
     </Reference>

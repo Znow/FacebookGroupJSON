@@ -55,6 +55,7 @@ namespace FacebookGroupJSON
                     File.AppendAllText(CONSTANTS.FEEDITEMPATH, "[");
                     File.AppendAllText(CONSTANTS.FEEDITEMPATH, json + ",");
                 }
+                DialogResult = true;
                 this.Close();
             }
             

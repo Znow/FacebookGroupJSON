@@ -29,23 +29,8 @@ namespace FacebookGroupJSON
         {
             InitializeComponent();
 
-            #region Initialize comboBox
-            if (File.Exists(CONSTANTS.FEEDITEMPATH))
-            {
-                var fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH));
-
-                if (fItem == null)
-                {
-                    return;
-                }
-
-                foreach (var item in fItem)
-                {
-                    //comboBox.Items.Add(fItem);
-                    ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
-                }
-            }
-            #endregion
+            //Load the combobox, from our JSON file.
+            LoadComboBox();
 
             //LoadFeed();
         }
@@ -60,7 +45,11 @@ namespace FacebookGroupJSON
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var newW = new AddFeed();
-            newW.Show();
+            newW.ShowDialog();
+            if(newW.DialogResult.HasValue && newW.DialogResult.Value)
+            {
+                LoadComboBox();
+            }
         }
 
         /// <summary>
@@ -93,14 +82,17 @@ namespace FacebookGroupJSON
             var titleLabel = (Label)feedItemWindow.FindName("itemTitle");
             if (titleLabel != null)
             {
-                titleLabel.Content = Tools.StripHTML(item.title);    
+                titleLabel.Content = Tools.StripTags(item.title.Replace("&#39;","'"));
+                //string text = Tools.StripTags(item.title);
+                //text = text.Text.Replace 
             }
 
             // Set the content in the window
             var contentTextBlock = (TextBlock)feedItemWindow.FindName("itemContent");
             if (contentTextBlock != null)
             {
-                contentTextBlock.Text = Tools.StripHTML(item.content);
+                //contentTextBlock.Text = Tools.StripHTML(item.content);
+                contentTextBlock.Text = Tools.StripTags(item.content.Replace("&#39;", "'"));
             }
             
 
@@ -133,14 +125,25 @@ namespace FacebookGroupJSON
         {
             LoadFeed(ComboBox.SelectedValue.ToString());
         }
-
-        public string StripTags(string input)
-        {
-            var doc = new HtmlDocument();
-            doc.LoadHtml(input ?? "");
-            return doc.DocumentNode.InnerText;
-        }
         
+        private void LoadComboBox()
+        {
+            if (File.Exists(CONSTANTS.FEEDITEMPATH))
+            {
+                var fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH));
+
+                if (fItem == null)
+                {
+                    return;
+                }
+
+                foreach (var item in fItem)
+                {
+                    //comboBox.Items.Add(fItem);
+                    ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
+                }
+            }
+        }
 
     }
 }

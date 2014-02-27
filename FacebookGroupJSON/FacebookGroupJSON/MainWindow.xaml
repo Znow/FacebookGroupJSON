@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Facebook Group JSON" Height="700" Width="600">
     <Grid Margin="0,0,-6.667,-8.333" RenderTransformOrigin="0.402,0.311">
-        <ComboBox x:Name="ComboBox" HorizontalAlignment="Left" Margin="132,10,0,0" VerticalAlignment="Top" Width="254" SelectionChanged="ComboBox_SelectionChanged"/>
-        <Button Content="Add New Feed" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.133,1.057" Height="22" IsDefault="True" Click="Button_Click"/>
-        <ListView x:Name="ListView" HorizontalAlignment="Left" Height="623" Margin="0,46,0,0" VerticalAlignment="Top" Width="590" MouseDoubleClick="ListView_MouseDoubleClick">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="269*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="ComboBox" HorizontalAlignment="Left" Margin="70.159,10,0,0" VerticalAlignment="Top" Width="254" SelectionChanged="ComboBox_SelectionChanged" Grid.Column="1"/>
+        <Button Content="Add New Feed" HorizontalAlignment="Left" Margin="387.159,10,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.133,1.057" Height="22" IsDefault="True" Click="Button_Click" Grid.Column="1"/>
+        <ListView x:Name="ListView" HorizontalAlignment="Left" Height="623" Margin="0,46,0,0" VerticalAlignment="Top" Width="590" MouseDoubleClick="ListView_MouseDoubleClick" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView >
                     <GridViewColumn Header="Titel" Width="400" DisplayMemberBinding="{Binding title}" />

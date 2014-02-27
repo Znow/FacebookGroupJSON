@@ -4,14 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 
 namespace FacebookGroupJSON
 {
     public class Tools
     {
-        public static string StripHTML(string text)
+
+        public static string StripTags(string input)
         {
-            return Regex.Replace(text, @"<(.|\n)*?>", string.Empty);
+            var doc = new HtmlDocument();
+            doc.LoadHtml(input ?? "");
+            return doc.DocumentNode.InnerText;
         }
     }
 }
