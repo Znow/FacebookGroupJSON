@@ -25,14 +25,12 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class MainWindow : Window
     {
-<<<<<<< HEAD
+
         bool loadNewSearchString;
 
-=======
         /// <summary>
         /// Constructor
         /// </summary>
->>>>>>> 8ab02fa67ccf6473635c9d553343979f6f1b6095
         public MainWindow()
         {
             InitializeComponent();
