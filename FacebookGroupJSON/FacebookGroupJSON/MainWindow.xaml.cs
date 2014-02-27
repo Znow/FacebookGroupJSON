@@ -25,12 +25,18 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool loadNewSearchString;
+
         public MainWindow()
         {
             InitializeComponent();
 
             //Load the combobox, from our JSON file.
             LoadComboBox();
+            if (ComboBox.Items.Count > 0)
+            {
+                ComboBox.SelectedIndex = 0;
+            }
 
             //LoadFeed();
         }
@@ -46,9 +52,11 @@ namespace FacebookGroupJSON
         {
             var newW = new AddFeed();
             newW.ShowDialog();
-            if(newW.DialogResult.HasValue && newW.DialogResult.Value)
+            if (newW.DialogResult.HasValue && newW.DialogResult.Value)
             {
+                loadNewSearchString = true;
                 LoadComboBox();
+                ComboBox.SelectedIndex = ComboBox.Items.Count-1;
             }
         }
 
@@ -141,12 +149,20 @@ namespace FacebookGroupJSON
                         return;
                     }
 
-                    foreach (var item in fItem)
+                    if (loadNewSearchString)
                     {
-                        //comboBox.Items.Add(fItem);
+                        var item = fItem[fItem.Count - 1];
                         ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
                     }
+                    else
+                    {
+                        foreach (var item in fItem)
+                        {
+                            ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
+                        }
+                    }
                 }
+                loadNewSearchString = false;
             
         }
 
