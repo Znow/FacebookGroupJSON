@@ -21,7 +21,6 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class AddFeed : Window
     {
-
         string fileData;
 
         string searchNoWhiteSpaces;
