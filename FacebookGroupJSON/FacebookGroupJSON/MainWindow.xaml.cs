@@ -164,7 +164,6 @@ namespace FacebookGroupJSON
             ListView.ItemsSource = ro.responseData.results;
         }
 
-        
         /// <summary>
         /// Loads the items in the ComboBox
         /// </summary>
