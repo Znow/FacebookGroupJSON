@@ -26,9 +26,12 @@ namespace FacebookGroupJSON
     public partial class MainWindow : Window
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         bool loadNewSearchString;
 
+=======
+>>>>>>> 815763bce9756858299f4b6cd94565875f461ee4
 =======
 >>>>>>> 815763bce9756858299f4b6cd94565875f461ee4
         /// <summary>
@@ -168,6 +171,7 @@ namespace FacebookGroupJSON
             ListView.ItemsSource = ro.responseData.results;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         /// <summary>
         /// Handles the Selection Changed event of ComboBox
@@ -178,6 +182,8 @@ namespace FacebookGroupJSON
         {
             LoadFeed(ComboBox.SelectedValue.ToString());
         }
+=======
+>>>>>>> 815763bce9756858299f4b6cd94565875f461ee4
 =======
 >>>>>>> 815763bce9756858299f4b6cd94565875f461ee4
         
