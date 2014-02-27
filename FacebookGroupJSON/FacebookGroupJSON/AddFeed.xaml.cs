@@ -21,15 +21,28 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class AddFeed : Window
     {
-        string fileData;
+        #region Fields
 
+        string fileData;
         string searchNoWhiteSpaces;
 
+        #endregion
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AddFeed()
         {
             InitializeComponent();
         }
 
+        #region Event Handlers
+
+        /// <summary>
+        /// Handles the click event of btnAdd
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             // Checks if textbox is empty.
@@ -72,6 +85,11 @@ namespace FacebookGroupJSON
             
         }
 
+        /// <summary>
+        /// Handles the Window Closing event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             //Reads our JSON file
@@ -87,5 +105,7 @@ namespace FacebookGroupJSON
                 File.WriteAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json", fileData);
             }
         }
+
+        #endregion
     }
 }
