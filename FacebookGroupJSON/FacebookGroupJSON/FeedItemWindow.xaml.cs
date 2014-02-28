@@ -41,21 +41,29 @@ namespace FacebookGroupJSON
             openWebBrowser(url);
         }
 
+        /// <summary>
+        /// Handles the Mouse Double Click event of relatedStories ListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void relatedStories_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var test = (ListView)sender;
+            var listView = (ListView)sender;
 
-            if (test.SelectedItems != null && test.SelectedItems.Count > 0)
+            // If the ListView contains items
+            if (listView.SelectedItems != null && listView.SelectedItems.Count > 0)
             {
-                var item = (Relatedstory)test.SelectedItems[0];
+                // Find the first clicked item
+                var item = (Relatedstory)listView.SelectedItems[0];
+                // Open the webbrowser with the items url
                 openWebBrowser(item.unescapedUrl);
-            }
-            
-
-                       
-            
+            }    
         }
 
+        /// <summary>
+        /// Open a webbrowser with a URL
+        /// </summary>
+        /// <param name="URL"></param>
         private void openWebBrowser(string URL)
         {
             // initialize the window: webbrowser

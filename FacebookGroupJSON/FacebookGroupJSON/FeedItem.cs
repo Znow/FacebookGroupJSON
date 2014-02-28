@@ -16,11 +16,18 @@ namespace FacebookGroupJSON
         #endregion'
 
         #region Constructor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="search"></param>
+        /// <param name="searchNoWhiteSpaces"></param>
         public FeedItem(string search, string searchNoWhiteSpaces)
         {
             Search = search;
             SearchNoWhiteSpaces = searchNoWhiteSpaces;
         }
+
         #endregion
     }
 }

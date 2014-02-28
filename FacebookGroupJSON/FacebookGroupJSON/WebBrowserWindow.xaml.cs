@@ -19,6 +19,9 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class WebBrowserWindow : Window
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public WebBrowserWindow()
         {
             InitializeComponent();

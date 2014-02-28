@@ -25,7 +25,13 @@ namespace FacebookGroupJSON
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Fields
+
         bool loadNewSearchString;
+
+        #endregion
+
+        #region Constructor
 
         /// <summary>
         /// Constructor
@@ -44,6 +50,8 @@ namespace FacebookGroupJSON
             //LoadFeed();
         }
 
+        #endregion
+
         #region Event Handlers
 
         /// <summary>
@@ -59,7 +67,7 @@ namespace FacebookGroupJSON
             {
                 loadNewSearchString = true;
                 LoadComboBox();
-                ComboBox.SelectedIndex = ComboBox.Items.Count-1;
+                ComboBox.SelectedIndex = ComboBox.Items.Count - 1;
             }
         }
 
@@ -71,7 +79,7 @@ namespace FacebookGroupJSON
         private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             // Get the item from the datacontext as a Result item, so we can access its values
-            var item = ((FrameworkElement) e.OriginalSource).DataContext as Result;
+            var item = ((FrameworkElement)e.OriginalSource).DataContext as Result;
 
             if (item == null)
             {
@@ -82,14 +90,14 @@ namespace FacebookGroupJSON
             var feedItemWindow = new FeedItemWindow();
 
             // Set the published date in the window
-            var publishedDateLabel = (Label) feedItemWindow.FindName("itemPublishedDate");
+            var publishedDateLabel = (Label)feedItemWindow.FindName("itemPublishedDate");
             if (publishedDateLabel != null)
             {
                 publishedDateLabel.Content = item.publishedDate;
             }
 
             // Set the publisher name in the window
-            var publisherLabel = (Label) feedItemWindow.FindName("itemPublisherLabel");
+            var publisherLabel = (Label)feedItemWindow.FindName("itemPublisherLabel");
             if (publisherLabel != null)
             {
                 publisherLabel.Content = item.publisher;
@@ -99,7 +107,7 @@ namespace FacebookGroupJSON
             var titleLabel = (Label)feedItemWindow.FindName("itemTitle");
             if (titleLabel != null)
             {
-                titleLabel.Content = Tools.StripTags(item.title.Replace("&#39;","'"));
+                titleLabel.Content = Tools.StripTags(item.title.Replace("&#39;", "'"));
             }
 
             // Set the content in the window
@@ -110,14 +118,14 @@ namespace FacebookGroupJSON
             }
 
             // Set the news url in the window
-            var urlButton = (Button) feedItemWindow.FindName("urlButton");
+            var urlButton = (Button)feedItemWindow.FindName("urlButton");
             if (urlButton != null)
             {
                 urlButton.CommandParameter = item.unescapedUrl;
             }
 
             // Set the related stories
-            var relatedStoriesList = (ListView) feedItemWindow.FindName("relatedStories");
+            var relatedStoriesList = (ListView)feedItemWindow.FindName("relatedStories");
             if (relatedStoriesList != null)
             {
                 relatedStoriesList.ItemsSource = item.relatedStories;
@@ -139,6 +147,8 @@ namespace FacebookGroupJSON
 
         #endregion
 
+        #region Methods
+
         /// <summary>
         /// Loads the feed
         /// </summary>
@@ -146,7 +156,7 @@ namespace FacebookGroupJSON
         {
             //string url = "https://ajax.googleapis.com/ajax/services/search/news?v=1.0&q=barack%20obama";
 
-            Rootobject ro = FeedParser.ParseJsonFromURL(CONSTANTS.BASEQUERYURL+search);
+            Rootobject ro = FeedParser.ParseJsonFromURL(CONSTANTS.BASEQUERYURL + search);
 
             if (ro == null)
             {
@@ -167,36 +177,38 @@ namespace FacebookGroupJSON
                 //Create our directory, if the directory isn't present.
                 Directory.CreateDirectory(CONSTANTS.FEEDITEMPATH);
             }
-                //Checks if our JSON file is present.
-                if (File.Exists(CONSTANTS.FEEDITEMPATH+"FeedItem.json"))
+            //Checks if our JSON file is present.
+            if (File.Exists(CONSTANTS.FEEDITEMPATH + "FeedItem.json"))
+            {
+                //Deserializes our JSON, into fItem which is a list of FeedItem
+                var fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json"));
+
+                if (fItem == null)
                 {
-                    //Deserializes our JSON, into fItem which is a list of FeedItem
-                    var fItem = JsonConvert.DeserializeObject<List<FeedItem>>(File.ReadAllText(CONSTANTS.FEEDITEMPATH + "FeedItem.json"));
+                    return;
+                }
 
-                    if (fItem == null)
+                //This bool is set to true, in our "Add new Feed" button.
+                //This is set, because we don't want to load all the entries from our JSON file, just the last one.
+                if (loadNewSearchString)
+                {
+                    var item = fItem[fItem.Count - 1];
+                    ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
+                }
+                //If the bool is false, then it will add all the entries from our JSON file, this happends first time the program starts.
+                else
+                {
+                    foreach (var item in fItem)
                     {
-                        return;
-                    }
-
-                    //This bool is set to true, in our "Add new Feed" button.
-                    //This is set, because we don't want to load all the entries from our JSON file, just the last one.
-                    if (loadNewSearchString)
-                    {
-                        var item = fItem[fItem.Count - 1];
                         ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
                     }
-                    //If the bool is false, then it will add all the entries from our JSON file, this happends first time the program starts.
-                    else
-                    {
-                        foreach (var item in fItem)
-                        {
-                            ComboBox.Items.Add(new FeedItem(item.Search, item.SearchNoWhiteSpaces).ToString());
-                        }
-                    }
                 }
-                loadNewSearchString = false;
-            
+            }
+
+            loadNewSearchString = false;
         }
+
+        #endregion
 
     }
 }
